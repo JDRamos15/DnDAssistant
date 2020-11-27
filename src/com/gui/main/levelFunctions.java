@@ -1,3 +1,5 @@
+package com.gui.main;
+
 public class levelFunctions {
     int baseCap = 1000;
     int previousCap = 0;
