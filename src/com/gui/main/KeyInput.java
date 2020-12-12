@@ -14,7 +14,6 @@ public class KeyInput extends KeyAdapter {
         g.fillRect(r.x, r.y, r.width, r.height);
         g.setColor(Color.black);
 
-//        g.drawString(key, r.x, r.y+r.height);
     }
 
 }

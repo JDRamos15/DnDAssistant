@@ -36,6 +36,7 @@ public class GUI  extends Canvas implements Runnable {
         health = new HealthBar();
         input1 = new KeyInput();
         dice = new Dice();
+        this.addMouseListener(dice);
     }
 
 
