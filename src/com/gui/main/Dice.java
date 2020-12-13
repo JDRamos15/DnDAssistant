@@ -13,7 +13,7 @@ public class Dice extends MouseAdapter {
     public int d12 = 12;
     public int d20 = 20;
     public int d100 = 100;
-    String key = " ";
+    String key = "";
 
 
     public void mousePressed(MouseEvent e){

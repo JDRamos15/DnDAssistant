@@ -10,33 +10,31 @@ public class GUI  extends Canvas implements Runnable {
     private Handler handler;
     private HealthBar health;
     private KeyInput input1;
+    private HealthManager manager;
     private Dice dice;
-    String text = " ";
 
     public enum STATE {
         skillCheck,
-        general
+        general,
+        inputs
     }
 
-    public STATE programState = STATE.general;
+    public STATE programState = STATE.inputs;
     public GUI(){
         handler = new Handler();
         new Window(800, 300, "DnD assistant!", this);
 
-        this.addKeyListener(new KeyInput(){
-            public void keyPressed(KeyEvent e){
-                text+=e.getKeyChar();
-
-                System.out.println(text); //Te falta hacer que el input que pongas sea un num y se pase
-                
-
-                //you might not need this is you are rendering constantly
-            }
-        });
         health = new HealthBar();
-        input1 = new KeyInput();
+        input1 = new KeyInput(this, handler);
+        manager = new HealthManager();
         dice = new Dice();
+
         this.addMouseListener(dice);
+        this.addMouseListener(manager);
+        this.addKeyListener(input1);
+
+        this.addKeyListener(manager);
+
     }
 
 
@@ -103,6 +101,10 @@ public class GUI  extends Canvas implements Runnable {
         if(programState == STATE.general){
             health.render(g);
             dice.render(g);
+            manager.render(g);
+        }
+        if(programState == STATE.inputs){
+            input1.render(g);
         }
 
         g.dispose();
