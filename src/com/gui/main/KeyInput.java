@@ -30,25 +30,22 @@ public class KeyInput extends KeyAdapter {
             } else {
                 int i = Integer.parseInt(maxHealth1);
                 health.setMaxHealth(i);
+
                 gui.programState = GUI.STATE.general;
             }
         }
-        //Te falta hacer que el input que pongas sea un num y se pase
-
-
-        //you might not need this is you are rendering constantly
     }
 
     public void render(Graphics g){
-        Rectangle r = new Rectangle(35,60,250,30);
+
+        //All that's missing is to fix the starting here and mvp will be "done"
 
         Font fnt1 = new Font("arial", 1, 35);
 
         g.setFont(fnt1);
-        g.setColor(Color.blue);
-        g.fillRect(r.x, r.y, r.width, r.height);
-        g.setColor(Color.black);
+        g.setColor(Color.white);
+        g.drawString("Please put your max health: ", 0, 45);
 
-        g.drawString(maxHealth1, r.x, r.y+r.height);
+        g.drawString(maxHealth1, 500, 45);
     }
 }

@@ -11,7 +11,7 @@ public class HealthManager extends KeyAdapter implements MouseListener {
         health = new HealthBar();
     }
     public void mouseClicked(MouseEvent e) {
-
+        //Not using
     }
 
     public void mousePressed(MouseEvent e) {
@@ -46,24 +46,27 @@ public class HealthManager extends KeyAdapter implements MouseListener {
     }
 
     public void mouseReleased(MouseEvent e) {
-
+        //Not using
     }
 
     public void mouseEntered(MouseEvent e) {
-
+        //Not using
     }
 
     public void mouseExited(MouseEvent e) {
-
+        //Not using
     }
 
     @Override
     public void keyPressed(KeyEvent e){
-        if(Character.isDigit(e.getKeyChar()) && modifier.length() < 3){
+        if(Character.isDigit(e.getKeyChar()) && modifier.length() < 2){
             modifier+=e.getKeyChar();
         }
         if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE && !modifier.isEmpty()){
             modifier = modifier.substring(0, modifier.length() - 1);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            modifier = "0";
         }
     }
     public void tick() {

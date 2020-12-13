@@ -17,7 +17,7 @@ public class HealthBar {
     public void reduceHealth(int modifier){
         if(currentHealth - modifier  > 0){
             currentHealth = currentHealth - modifier;
-        } else if(currentHealth - modifier < 0) {
+        } else if(currentHealth - modifier <= 0) {
             currentHealth = 0;
         }
         Health = (currentHealth * 100)/maxHealth;
