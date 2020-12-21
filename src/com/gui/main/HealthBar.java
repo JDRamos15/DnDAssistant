@@ -36,7 +36,7 @@ public class HealthBar {
     }
 
     public void render(Graphics g) {
-        Font fnt1 = new Font("arial", 1, 25);
+        Font fnt1 = new Font("arial", Font.BOLD, 25);
 
         g.setColor(Color.gray);
         g.fillRect(15, 15, 200, 32);

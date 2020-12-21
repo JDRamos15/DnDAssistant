@@ -1,20 +1,18 @@
 package com.gui.main;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class KeyInput extends KeyAdapter {
     String maxHealth1 = "";
-    private HealthBar health;
-    private GUI gui;
-    private Handler handler;
+    private final HealthBar health;
+    private final GUI gui;
 
-    public KeyInput(GUI gui, Handler handler) {
+    public KeyInput(GUI gui) {
         this.gui = gui;
-        this.handler = handler;
         health = new HealthBar();
     }
 
@@ -40,7 +38,7 @@ public class KeyInput extends KeyAdapter {
     public void render(Graphics g) {
         // All that's missing is to fix the starting here and mvp will be "done"
 
-        Font fnt1 = new Font("arial", 1, 35);
+        Font fnt1 = new Font("arial", Font.BOLD, 35);
 
         g.setFont(fnt1);
         g.setColor(Color.white);

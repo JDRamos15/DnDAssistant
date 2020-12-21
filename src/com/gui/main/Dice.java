@@ -6,13 +6,6 @@ import java.awt.event.MouseEvent;
 import java.util.Random;
 
 public class Dice extends MouseAdapter {
-    public int d4 = 4;
-    public int d6 = 6;
-    public int d8 = 8;
-    public int d10 = 10;
-    public int d12 = 12;
-    public int d20 = 20;
-    public int d100 = 100;
     String key = "";
 
     public void mousePressed(MouseEvent e) {
@@ -22,40 +15,37 @@ public class Dice extends MouseAdapter {
         if (mouseOver(mx, my, 50, 85, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(5 - 1) + 1;
-            key = "d4: " + String.valueOf(num);
+            key = "d4: " + num;
         } else if (mouseOver(mx, my, 150, 85, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(7 - 1) + 1;
-            key = "d6: " + String.valueOf(num);
+            key = "d6: " + num;
         } else if (mouseOver(mx, my, 250, 85, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(9 - 1) + 1;
-            key = "d8: " + String.valueOf(num);
+            key = "d8: " + num;
         } else if (mouseOver(mx, my, 50, 170, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(11 - 1) + 1;
-            key = "d10: " + String.valueOf(num);
+            key = "d10: " + num;
         } else if (mouseOver(mx, my, 150, 170, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(13 - 1) + 1;
-            key = "d12: " + String.valueOf(num);
+            key = "d12: " + num;
         } else if (mouseOver(mx, my, 350, 85, 155, 155)) {
             Random random = new Random();
             int num = random.nextInt(21 - 1) + 1;
-            key = "d20: " + String.valueOf(num);
+            key = "d20: " + num;
         } else if (mouseOver(mx, my, 250, 170, 70, 70)) {
             Random random = new Random();
             int num = random.nextInt(101 - 1) + 1;
-            key = "d100: " + String.valueOf(num);
+            key = "d100: " + num;
         }
     }
 
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height) {
         if (mx > x && mx < x + width) {
-            if (my > y && my < y + height) {
-                return true;
-            } else
-                return false;
+            return my > y && my < y + height;
         } else
             return false;
     }
@@ -64,8 +54,8 @@ public class Dice extends MouseAdapter {
     }
 
     public void render(Graphics g) {
-        Font fnt = new Font("arial", 1, 25);
-        Font fnt1 = new Font("arial", 1, 50);
+        Font fnt = new Font("arial", Font.BOLD, 25);
+        Font fnt1 = new Font("arial", Font.BOLD, 50);
 
         // d4
         g.setFont(fnt);

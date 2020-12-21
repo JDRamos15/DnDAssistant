@@ -1,17 +1,19 @@
 package com.gui.main;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 public class GUI extends Canvas implements Runnable {
+    private static final long serialVersionUID = 918717031339615915L;
     private Thread thread;
     private boolean isRunning = false;
-    private Handler handler;
-    private HealthBar health;
-    private KeyInput input1;
-    private HealthManager manager;
-    private Dice dice;
+    private final Handler handler;
+    private final HealthBar health;
+    private final KeyInput input1;
+    private final HealthManager manager;
+    private final Dice dice;
 
     public enum STATE {
         skillCheck, general, inputs
@@ -24,7 +26,7 @@ public class GUI extends Canvas implements Runnable {
         new Window(800, 300, "DnD assistant!", this);
 
         health = new HealthBar();
-        input1 = new KeyInput(this, handler);
+        input1 = new KeyInput(this);
         manager = new HealthManager();
         dice = new Dice();
 
@@ -55,7 +57,6 @@ public class GUI extends Canvas implements Runnable {
         double amountOfTicks = 60;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
-        long timer = System.currentTimeMillis();
         while (isRunning) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -107,14 +108,11 @@ public class GUI extends Canvas implements Runnable {
 
     public static int clamp(int var, int min, int max) {
         if (var >= max)
-            return var = max;
-        else if (var <= min)
-            return var = min;
-        else
-            return var;
+            return max;
+        else return Math.max(var, min);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         new GUI();
     }
 }
