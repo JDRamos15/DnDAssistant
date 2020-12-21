@@ -12,20 +12,21 @@ public class KeyInput extends KeyAdapter {
     private GUI gui;
     private Handler handler;
 
-    public KeyInput(GUI gui, Handler handler){
+    public KeyInput(GUI gui, Handler handler) {
         this.gui = gui;
         this.handler = handler;
         health = new HealthBar();
     }
-    public void keyPressed(KeyEvent e){
-        if(Character.isDigit(e.getKeyChar()) && maxHealth1.length() < 3){
-            maxHealth1+=e.getKeyChar();
+
+    public void keyPressed(KeyEvent e) {
+        if (Character.isDigit(e.getKeyChar()) && maxHealth1.length() < 3) {
+            maxHealth1 += e.getKeyChar();
         }
-        if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE && !maxHealth1.isEmpty()){
+        if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && !maxHealth1.isEmpty()) {
             maxHealth1 = maxHealth1.substring(0, maxHealth1.length() - 1);
         }
-        if(e.getKeyCode() == KeyEvent.VK_ENTER){
-            if(maxHealth1.isEmpty()){
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (maxHealth1.isEmpty()) {
                 System.out.println("Health cant be null");
             } else {
                 int i = Integer.parseInt(maxHealth1);
@@ -36,9 +37,8 @@ public class KeyInput extends KeyAdapter {
         }
     }
 
-    public void render(Graphics g){
-
-        //All that's missing is to fix the starting here and mvp will be "done"
+    public void render(Graphics g) {
+        // All that's missing is to fix the starting here and mvp will be "done"
 
         Font fnt1 = new Font("arial", 1, 35);
 
