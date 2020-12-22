@@ -3,15 +3,15 @@ package com.gui.main;
 import java.awt.*;
 
 public abstract class ProgramObject {
-
     protected int x, y;
 
-    public ProgramObject(int x, int y){
+    public ProgramObject(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
     public abstract void tick();
+
     public abstract void render(Graphics g);
 
     public int getX() {

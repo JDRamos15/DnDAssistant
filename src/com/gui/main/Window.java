@@ -3,12 +3,10 @@ package com.gui.main;
 import javax.swing.*;
 import java.awt.*;
 
-
 //Here we create the window that will hold the GUI of the XP bars
 
-
 public class Window extends Canvas {
-
+    private static final long serialVersionUID = 5858919276472914433L;
 
     public Window(int width, int height, String title, GUI gui) {
         JFrame frame = new JFrame(title);
@@ -23,7 +21,5 @@ public class Window extends Canvas {
         frame.add(gui);
         frame.setVisible(true);
         gui.start();
-
-
     }
 }
